@@ -1,1 +1,14 @@
-stuff
+SVM and MLP in sklearn
+Overall structure:
+-General-purpose functions (CV/Grid search?)
+general.py
+-SVM main script
+svm.py
+-MLP main script
+mlp.py
+
+- Parameter file, including paths to datasets
+params.py
+
+
+CNN in Pytorch
