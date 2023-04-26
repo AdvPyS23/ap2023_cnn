@@ -19,3 +19,15 @@ For further details on the different steps of the project please see the [ROADMA
 
 
 Information for users, such as how to run and use the model and the overall performance, will follow later on.
+
+Some key resources:
+
+[PyTorch Classifier Tutorial](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html)
+
+[CNN Model Guide ](https://www.kaggle.com/code/pavansanagapati/a-simple-cnn-model-beginner-guide)
+
+[Deep Learning CNN for Fashion-MNIST Classification ](https://machinelearningmastery.com/how-to-develop-a-cnn-from-scratch-for-fashion-mnist-clothing-classification/)
+
+
+
+
