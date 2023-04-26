@@ -1,4 +1,5 @@
 Fashion-MNIST Classification
+
 Building a CNN classifier in Pytorch
 
 #### Data Preprocessing (April 30th)
@@ -6,6 +7,7 @@ Building a CNN classifier in Pytorch
 * Create tensors, normalize (mean 0, sd 0.5)
 * Create DataLoaders (think about batch size)
 * Visualize
+
 see: [Pytorch tutorial](https://github.com/pytorch/tutorials/blob/main/beginner_source/basics/data_tutorial.py)
 
 Expected result: Dataset and Dataloader objects
