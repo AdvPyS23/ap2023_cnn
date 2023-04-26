@@ -14,20 +14,8 @@ The classes are the following:
 * 8: Bag
 * 9: Ankle boot
 
-### Defining Training and Test Data
-The dataset already has a well-defined train and test dataset that we can use.
-Further split the training data set into a validation set and a train set to estimate the performance for a given training run.
-
-### Estimating the performance of the model
-
-### Developing a baseline model
-
-### Define Baseline Convolutional Neural Network Model
-
-### Evaluate the Model
-
-### Optimization Methods
+The project's general workflow consists of training, testing, and optimising the model, as well as describing and visualising its performance.
+For further details on the different steps of the project please see the [ROADMAP.md](ROADMAP.md) file.
 
 
-To come later: information for users (how do I run this?) + Information on performance 
-
+Information for users, such as how to run and use the model and the overall performance, will follow later on.
