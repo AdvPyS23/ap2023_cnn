@@ -1,6 +1,6 @@
 # Welcome!
-This project is being conducted as part of the **Advanced Python (FS2023)** course at the University of Bern. It aims at building a multi-class classifier for clothing images from the [Fashion-MNIST dataset](https://github.com/zalandoresearch/fashion-mnist) as a convolutional neural network
-as classifier architecture using the PyTorch framework. Fashion-MNIST is a dataset of Zalando article photos, with 60,000 examples in the training set and 10,000 examples in the test set. Each sample is a 28x28 grayscale image with a label from one of ten classes.
+This project is being conducted as part of the **Advanced Python (FS2023)** course at the University of Bern. It aims at building a multi-class classifier for clothing images from the [Fashion-MNIST dataset](https://github.com/zalandoresearch/fashion-mnist) using a convolutional neural network built in Pytorch.   
+Fashion-MNIST is a dataset of Zalando article photos, with 60,000 examples in the training set and 10,000 examples in the test set. Each sample is a 28x28 grayscale image with a label from one of ten classes.
 The classes are the following:
 
 * 0: T-shirt/top
@@ -23,6 +23,8 @@ Information for users, such as how to run and use the model and the overall perf
 Some key resources:
 
 [PyTorch Classifier Tutorial](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html)
+
+[Detailed breakdown of the CNN architecture](https://cs231n.github.io/convolutional-networks/)
 
 [CNN Model Guide ](https://www.kaggle.com/code/pavansanagapati/a-simple-cnn-model-beginner-guide)
 
