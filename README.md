@@ -14,15 +14,29 @@ The classes are the following:
 * 8: Bag
 * 9: Ankle boot
 
-The project's general workflow consists of training, testing, and optimising the model, as well as describing and visualising its performance.
+The project's main steps are data pre-processing, training and optimising the model, as well as measuring and visualising its performance.
 For further details on the different steps of the project please see the [ROADMAP.md](ROADMAP.md) file.
 
+### Installation / Dependencies
 
-Information for users, such as how to run and use the model and the overall performance, will follow later on.
+Although all necessary packages can be installed manually, we recommend using [Anaconda](https://www.anaconda.com/download#downloads)   
+The [environment file](./environment.yml) lists all packages and their versions. If you already have anaconda, simply create a new environment using      
+
+`conda env create -f environment.yml`
+
+Check that the environment has been correctly installed with   
+
+`conda env list`
+
+It should be listed under the name `pytorch`.   
+
+#
+
+More information such as how to run, use the model and the overall performance will follow later on.
 
 Some key resources:
 
-[PyTorch Classifier Tutorial](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html)
+[Basic Pytorch Tutorial](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html)
 
 [Detailed breakdown of the CNN architecture](https://cs231n.github.io/convolutional-networks/)
 
