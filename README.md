@@ -19,10 +19,14 @@ For further details on the different steps of the project please see the [ROADMA
 
 ### Installation / Dependencies
 
-Although all necessary packages can be installed manually, we recommend using [Anaconda](https://www.anaconda.com/download#downloads)   
-The [environment file](./environment.yml) lists all packages and their versions. If you already have anaconda, simply create a new environment using      
+Although all necessary packages can be installed manually, we recommend using [Anaconda](https://www.anaconda.com/download#downloads).   
+The [environment file](./environment.yml) lists all packages and their versions. If you already have anaconda installed, simply create a new environment using:      
 
-`conda env create -f environment.yml`
+#### For Linux / WSL2
+`conda env create -f environment_lx.yml`  
+
+#### For macOS   
+`conda env create -f environment_macOS.yml`   
 
 Check that the environment has been correctly installed with   
 
