@@ -1,46 +1,18 @@
-# Loading the dataset
-# ---------------------
-#
-# The Fashion-MNIST dataset is available directly through Torchvision
-# It contains 60'000 training images and 10'000 test images
+"""Main python script, used to build the model from scratch
+"""
 
 
-from torch.utils.data import DataLoader
-from torchvision import utils
-from torchvision import datasets
-import torchvision.transforms as transforms
+import scripts.visualization as visu
+import scripts.preprocessing as preprocessing
 import matplotlib.pyplot as plt
 import numpy as np
+from torchvision import utils
+
+# Load the data, transform it
+train_data, test_data, train_loader, test_loader = preprocessing.load(32, 1)
 
 
-training_data = datasets.FashionMNIST(
-    root="data", train=True, download=True,
-    transform=transforms.Compose([
-        transforms.ToTensor(),
-        transforms.Normalize((0.5,), (0.5,))
-    ])
-)
-
-test_data = datasets.FashionMNIST(
-    root="data", train=False, download=True,
-    transform=transforms.Compose([
-        transforms.ToTensor(),
-        transforms.Normalize((0.5,), (0.5,)) # ToTensor scales to [0,1]. This centers data around 0
-    ])
-)
-
-print(f'Loaded {len(training_data)} training images\nand {len(test_data)} test images')
-
-# DataLoaders
-
-batchsize = 32
-
-training_loader = DataLoader(training_data, batch_size=batchsize, shuffle=True) #, num_workers=4)
-test_loader = DataLoader(test_data, batch_size=batchsize, shuffle=True) #, num_workers=4)
-
-print(f'Datasets and DataLoaders ready, batch size: {batchsize}')
-
-# Visualizing the data
+# Visualizing the data (will move this to the appropriate scripts over the weekend)
 # --------------------
 
 def imsave(img):
