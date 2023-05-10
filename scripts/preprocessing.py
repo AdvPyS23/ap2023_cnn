@@ -5,9 +5,9 @@ the loading/transformation of data and creation of dataloaders,
 and the visualization of the input images
 """
 from torch.utils.data import DataLoader
-from torchvision import utils
 from torchvision import datasets
 import torchvision.transforms as transforms
+from scripts.visualization import batch_plot
 
 
 def load(batch_size, cores):
@@ -51,8 +51,8 @@ def load(batch_size, cores):
     return training_data, test_data, training_loader, test_loader
 
 
-def data_check(training_data, test_data, training_loader, test_loader):
-    """Prints dataset and batch size, plots a batch of training images.
+def data_check(training_data, test_data, training_loader, path='./data/training_batch.jpg'):
+    """Prints training and test set sizes, and plots a batch of training images.
 
     Parameters
     ----------
@@ -62,8 +62,12 @@ def data_check(training_data, test_data, training_loader, test_loader):
         Dataset object for the test data
     training_loader
         DataLoader for the training data
-    test_loader
-        DataLoader for the test data
+    path
+        Path to the batch image output
     """
-    print(f'Loaded {len(training_data)} training images and {len(test_data)} test images\n')
+    print(f'Loaded {len(training_data)} training images and {len(test_data)} test images.')
+
+    batch_plot(training_loader, path)
+
+    print(f'See {path} to visualize a batch of training images')
 
