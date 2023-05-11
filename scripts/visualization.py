@@ -26,6 +26,6 @@ def batch_plot(training_loader, path):
         plt.savefig(path)
 
     dataiter = iter(training_loader)
-    images, labels = next(dataiter)
+    images = next(dataiter)[0]
 
     imsave(utils.make_grid(images))

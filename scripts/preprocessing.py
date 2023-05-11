@@ -6,7 +6,7 @@ and the visualization of the input images
 """
 from torch.utils.data import DataLoader
 from torchvision import datasets
-import torchvision.transforms as transforms
+from torchvision import transforms
 from scripts.visualization import batch_plot
 
 
@@ -24,8 +24,8 @@ def load(batch_size, cores):
     Returns
     ---------
     tuple
-        A tuple (training_data, test_data, training_loader, test_loader), the Dataset and DataLoader objects for the
-        training and test sets.
+        A tuple (training_data, test_data, training_loader, test_loader), the Dataset
+        and DataLoader objects for the training and test sets.
 
     """
 
@@ -40,12 +40,12 @@ def load(batch_size, cores):
     test_data = datasets.FashionMNIST(
         root="../data", train=False, download=True,
         transform=transforms.Compose([
-            transforms.ToTensor(),
-            transforms.Normalize((0.5,), (0.5,))  # ToTensor scales to [0,1]. This centers data around 0
+            transforms.ToTensor(), # ToTensor automatically scales to [0,1].
+            transforms.Normalize((0.5,), (0.5,))  # This centers data around 0
         ])
     )
 
-    training_loader = DataLoader(training_data, batch_size=batch_size, shuffle=True, num_workers=cores)
+    training_loader = DataLoader(training_data, batch_size=batch_size, shuffle=True, num_workers=cores
     test_loader = DataLoader(test_data, batch_size=batch_size, shuffle=True, num_workers=cores)
 
     return training_data, test_data, training_loader, test_loader
@@ -70,4 +70,3 @@ def data_check(training_data, test_data, training_loader, path='./data/training_
     batch_plot(training_loader, path)
 
     print(f'See {path} to visualize a batch of training images')
-
