@@ -45,7 +45,7 @@ def load(batch_size, cores):
         ])
     )
 
-    training_loader = DataLoader(training_data, batch_size=batch_size, shuffle=True, num_workers=cores
+    training_loader = DataLoader(training_data, batch_size=batch_size, shuffle=True, num_workers=cores)
     test_loader = DataLoader(test_data, batch_size=batch_size, shuffle=True, num_workers=cores)
 
     return training_data, test_data, training_loader, test_loader
