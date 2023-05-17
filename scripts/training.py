@@ -2,6 +2,9 @@ import torch.nn as nn
 import torch.optim as optim
 
 #  create a class that inherits from the nn.Module class
+
+batch_size = 32
+
 class CNN(nn.Module):
     def __init__(self):
         super(CNN, self).__init__()
@@ -12,18 +15,28 @@ class CNN(nn.Module):
         self.fc2 = nn.Linear(in_features=128, out_features=10)
 
     def forward(self, x):
-        x = nn.functional.relu(self.conv1(x))
-        x = nn.functional.max_pool2d(x, 2)
-        x = nn.functional.relu(self.conv2(x))
-        x = nn.functional.max_pool2d(x, 2)
-        x = x.view(-1, 64 * 5 * 5)
-        x = nn.functional.relu(self.fc1(x))
-        x = self.fc2(x)
-        return x
+        try:
+            if x.size() != (batch_size, 1, 28, 28):
+                raise ValueError("Input tensor size is not (batch_size, 1, 28, 28)")
+        except ValueError as ve:
+            print(ve)
+            return None
+
+        try:
+            x = nn.functional.relu(self.conv1(x))
+            x = nn.functional.max_pool2d(x, 2)
+            x = nn.functional.relu(self.conv2(x))
+            x = nn.functional.max_pool2d(x, 2)
+            x = x.view(-1, 64 * 5 * 5)
+            x = nn.functional.relu(self.fc1(x))
+            x = self.fc2(x)
+            return x
+        except RuntimeError as re:
+            print(re)
+            return None
 
 
-
-
+# train function
 def train(net, trainloader, epochs, device):
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)

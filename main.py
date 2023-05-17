@@ -6,7 +6,8 @@ import scripts.training as train
 import torch
 
 # Load the data, transform it
-train_data, test_data, train_loader, test_loader = preprocessing.load(32, 1)
+batch_size = 32
+train_data, test_data, train_loader, test_loader = preprocessing.load(batch_size, 1)
 
 
 # Checking dataset size and visualizing a few images
