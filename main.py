@@ -18,7 +18,7 @@ preprocessing.data_check(train_data, test_data, train_loader)
 net = train.CNN()
 
 # train model
-# epochs = 10
-# device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-# train_model = train.train(net, train_loader, epochs, device)
+epochs = 5
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+train_model = train.train(net, train_loader, epochs, device)
 

@@ -1,5 +1,5 @@
 import unittest
-import preprocessing as pre
+import scripts.preprocessing as pre
 
 
 class TestLoad(unittest.TestCase):
