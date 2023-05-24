@@ -51,7 +51,7 @@ def load(batch_size, cores):
     return training_data, test_data, training_loader, test_loader
 
 
-def data_check(training_data, test_data, training_loader, path='./data/training_batch.jpg'):
+def data_check(training_data, test_data, training_loader, path='../data/training_batch.jpg'):
     """Prints training and test set sizes, and plots a batch of training images.
 
     Parameters
