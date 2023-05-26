@@ -30,7 +30,7 @@ def load(batch_size, cores):
     """
 
     training_data = datasets.FashionMNIST(
-        root="../data", train=True, download=True,
+        root="./data", train=True, download=True,
         transform=transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize((0.5,), (0.5,))
@@ -38,7 +38,7 @@ def load(batch_size, cores):
     )
 
     test_data = datasets.FashionMNIST(
-        root="../data", train=False, download=True,
+        root="./data", train=False, download=True,
         transform=transforms.Compose([
             transforms.ToTensor(), # ToTensor automatically scales to [0,1].
             transforms.Normalize((0.5,), (0.5,))  # This centers data around 0
@@ -51,7 +51,7 @@ def load(batch_size, cores):
     return training_data, test_data, training_loader, test_loader
 
 
-def data_check(training_data, test_data, training_loader, path='../data/training_batch.jpg'):
+def data_check(training_data, test_data, training_loader, path='./data/training_batch.jpg'):
     """Prints training and test set sizes, and plots a batch of training images.
 
     Parameters
