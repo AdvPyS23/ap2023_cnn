@@ -7,8 +7,7 @@ import torch
 
 # Load the data, transform it
 batch_size = 32
-# set cores to 0?
-train_data, test_data, train_loader, test_loader = preprocessing.load(batch_size, 6)
+train_data, test_data, train_loader, test_loader = preprocessing.load(batch_size, 8)
 
 
 # Checking dataset size and visualizing a few images
@@ -18,7 +17,7 @@ preprocessing.data_check(train_data, test_data, train_loader)
 net = train.CNN()
 
 # train model
-epochs = 5
+epochs = 20
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 train_model = train.train(net, train_loader, test_loader, epochs, device)
 

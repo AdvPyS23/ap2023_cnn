@@ -24,3 +24,5 @@ Expected result: Dataset and Dataloader objects
 #### Performance measures/Visualization
 ROC curve, confusion matrix, loss/accuracy curve, etc...
 
+#### Past course time:
+Accuracy measures by class

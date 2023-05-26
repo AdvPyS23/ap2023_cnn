@@ -83,4 +83,7 @@ def train(net, trainloader, testloader, epochs, device):
         correct /= size
         print(f"Test Error: \n Accuracy: {(100 * correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
 
+        # Save model at each epoch
+        torch.save(net.state_dict(), f'./models/cnn_model_epoch_{epoch+1}.pth')
+
     print('Finished Training')
