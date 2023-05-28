@@ -45,6 +45,8 @@ def train(net, trainloader, testloader, epochs, device):
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
     net.to(device)
+    losses_train = []
+    losses_test = []
 
     for epoch in range(epochs):  # loop over the dataset multiple times
         print(f'Epoch {epoch+1}:')
@@ -67,7 +69,7 @@ def train(net, trainloader, testloader, epochs, device):
             running_loss += loss.item()
             if i % 100 == 99:    # print every 100 batches
                 print('[%d, %5d] loss: %.3f' %
-                    (epoch + 1, i + 1, running_loss / 2000))
+                    (epoch + 1, i + 1, running_loss / 100))
                 running_loss = 0.0
 
         # Testing section of the epoch
@@ -84,6 +86,8 @@ def train(net, trainloader, testloader, epochs, device):
         test_loss /= num_batches
         correct /= size
         print(f"Test Error: \n Accuracy: {(100 * correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
+
+        # Extract loss per epoch for both training and testing
 
         # Save model at each epoch
         torch.save(net.state_dict(), f'./models/cnn_model_epoch_{epoch+1}.pth')
