@@ -47,10 +47,15 @@ def train(net, trainloader, testloader, epochs, device):
     net.to(device)
     losses_train = []
     losses_test = []
+    acc_train = []
+    acc_test = []
 
     for epoch in range(epochs):  # loop over the dataset multiple times
         print(f'Epoch {epoch+1}:')
         running_loss = 0.0
+        running_test_loss = 0.0
+        running_acc = 0.0
+        correct_batches = 0.0
         # Training section of the epoch
         for i, data in enumerate(trainloader, 0):
             # get the inputs; data is a list of [inputs, labels]
@@ -67,10 +72,14 @@ def train(net, trainloader, testloader, epochs, device):
 
             # print statistics
             running_loss += loss.item()
-            if i % 100 == 99:    # print every 100 batches
+            running_acc += (pred.argmax(1) == labels).type(torch.float).sum().item()
+            if i % 100 == 99:    # print and save every 100 batches
                 print('[%d, %5d] loss: %.3f' %
                     (epoch + 1, i + 1, running_loss / 100))
+                losses_train.append(running_loss / 100)
+                acc_train.append(running_acc)
                 running_loss = 0.0
+                running_acc = 0.0
 
         # Testing section of the epoch
         size = len(testloader.dataset)
@@ -78,18 +87,26 @@ def train(net, trainloader, testloader, epochs, device):
         test_loss, correct = 0, 0
 
         with torch.no_grad():
-            for X, y in testloader:
+            for i, (X, y) in enumerate(testloader, 0):
                 pred = net(X)
                 test_loss += criterion(pred, y).item()
+                running_test_loss += criterion(pred, y).item()
                 correct += (pred.argmax(1) == y).type(torch.float).sum().item()
+                correct_batches += (pred.argmax(1) == y).type(torch.float).sum().item()
+                if i % 100 == 99:    # save every 100 batches
+                    losses_test.append(running_test_loss / 100)
+                    acc_test.append(correct_batches)
+                    running_test_loss = 0.0
+                    correct_batches = 0.0
 
         test_loss /= num_batches
         correct /= size
         print(f"Test Error: \n Accuracy: {(100 * correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
 
-        # Extract loss per epoch for both training and testing
 
         # Save model at each epoch
         torch.save(net.state_dict(), f'./models/cnn_model_epoch_{epoch+1}.pth')
 
     print('Finished Training')
+    return losses_train, losses_test, acc_train, acc_test
+

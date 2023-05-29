@@ -24,5 +24,5 @@ print(net)
 epochs = 20
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-train.train(net, train_loader, test_loader, epochs, device)
+train_loss, test_loss, train_acc, test_acc = train.train(net, train_loader, test_loader, epochs, device)
 
