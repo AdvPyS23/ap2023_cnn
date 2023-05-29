@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+import traceback
 
 #  create a class that inherits from the nn.Module class
 
@@ -19,7 +20,7 @@ class CNN(nn.Module):
     def forward(self, x):
         try:
             if x.size() != (batch_size, 1, 28, 28):
-                raise ValueError("Input tensor size is not (batch_size, 1, 28, 28)")
+                raise ValueError(f"Input tensor size is {x.size()}, expected size is (batch_size, 1, 28, 28)")
         except ValueError as ve:
             print(ve)
             return None
@@ -34,7 +35,8 @@ class CNN(nn.Module):
             x = self.fc2(x)
             return x
         except RuntimeError as re:
-            print(re)
+            print("Runtime Error:", re)
+            print("Traceback:", traceback.format_exc())
             return None
 
 
