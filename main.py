@@ -3,6 +3,7 @@
 
 import scripts.preprocessing as preprocessing
 import scripts.training as train
+import scripts.visualization as visu
 import torch
 
 # Load the data, transform it
@@ -26,3 +27,5 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 train_loss, test_loss, train_acc, test_acc = train.train(net, train_loader, test_loader, epochs, device)
 
+# Visualize loss and accuracy
+visu.loss_acc_plot(train_loss, test_loss, train_acc, test_acc, 20)
