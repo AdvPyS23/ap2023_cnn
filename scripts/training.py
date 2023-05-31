@@ -74,7 +74,7 @@ def train(net, trainloader, testloader, epochs, device):
 
             # print statistics
             running_loss += loss.item()
-            running_acc += (pred.argmax(1) == labels).type(torch.float).sum().item()
+            running_acc += (outputs.argmax(1) == labels).type(torch.float).sum().item()
             if i % 100 == 99:    # print and save every 100 batches
                 print('[%d, %5d] loss: %.3f' %
                     (epoch + 1, i + 1, running_loss / 100))
