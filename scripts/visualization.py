@@ -59,10 +59,10 @@ def loss_acc_plot(train_loss, test_loss, train_acc, test_acc, epochs):
     axs[0].legend(loc='upper right', frameon=False)
 
     axs[1].plot(steps_train, train_acc, '-', label='training')
-    axs[1].plot(steps_test, test_acc, '-')
+    axs[1].plot(steps_test, test_acc, '-', label='testing')
     axs[1].set_xlabel('Epochs')
     axs[1].set_ylabel('Accuracy (%)')
-    axs[1].set_ylim(40, 100)
+    axs[1].set_ylim(60, 100)
     axs[1].legend(loc='upper right', frameon=False)
 
     # Save the figure
