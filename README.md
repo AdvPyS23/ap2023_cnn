@@ -14,10 +14,9 @@ The classes are the following:
 * 8: Bag
 * 9: Ankle boot
 
-The project's main steps are data pre-processing, training and optimising the model, as well as measuring and visualising its performance.
-For further details on the different steps of the project please see the [ROADMAP.md](ROADMAP.md) file.
 
-### Installation / Dependencies
+
+### Virtual Environment / Dependencies
 
 Although all necessary packages can be installed manually, we recommend using [Anaconda](https://www.anaconda.com/download#downloads).   
 The [environment file](./environment.yml) lists all packages and their versions. If you already have anaconda installed, simply create a new environment using:      
@@ -34,9 +33,19 @@ Check that the environment has been correctly installed with
 
 It should be listed under the name `pytorch`.   
 
+### Running
+
+To run our base version of the model, first specify your desired batch size, # of cores and # epochs in the `main.py` file.  
+Please note that if you change the base batch size, you also need to change it in `scripts/training.py`. We intend on fixing this issue later.
+
+Once the parameters are set, simply run `main.py`.   
+The model is saved in `models`, plots of input images, loss and accuracy are saved in `data`.
+
+If you wish to modify the loss function, optimizer parameters or model architecture, head to `scripts/training.py`
+
+
 #
 
-More information such as how to run, use the model and the overall performance will follow later on.
 
 Some key resources:
 
@@ -46,7 +55,7 @@ Some key resources:
 
 [CNN Model Guide ](https://www.kaggle.com/code/pavansanagapati/a-simple-cnn-model-beginner-guide)
 
-[Deep Learning CNN for Fashion-MNIST Classification ](https://machinelearningmastery.com/how-to-develop-a-cnn-from-scratch-for-fashion-mnist-clothing-classification/)
+
 
 
 
