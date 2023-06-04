@@ -21,8 +21,11 @@ Expected result: Dataset and Dataloader objects
 * Define training and test loops
 * Save model weights 
 
-#### Performance measures/Visualization
-ROC curve, confusion matrix, loss/accuracy curve, etc...
+#### Performance measures/Visualization (by end of May)
+loss/accuracy curves, ROC curve?
 
-#### Past course time:
+#### Past course time (June and onwards):
 Accuracy measures by class
+Confusion matrix
+Implement cross-validation
+ROC curves
