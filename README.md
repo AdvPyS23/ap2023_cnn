@@ -1,5 +1,5 @@
 # Welcome!
-This project is being conducted as part of the **Advanced Python (FS2023)** course at the University of Bern. It aims at building a multi-class classifier for clothing images from the [Fashion-MNIST dataset](https://github.com/zalandoresearch/fashion-mnist) using a convolutional neural network built in Pytorch.   
+This project was being conducted as part of the **Advanced Python (FS2023)** course at the University of Bern. It aims at building a multi-class classifier for clothing images from the [Fashion-MNIST dataset](https://github.com/zalandoresearch/fashion-mnist) using a convolutional neural network built in Pytorch.   
 Fashion-MNIST is a dataset of Zalando article photos, with 60,000 examples in the training set and 10,000 examples in the test set. Each sample is a 28x28 grayscale image with a label from one of ten classes.
 The classes are the following:
 
@@ -14,12 +14,12 @@ The classes are the following:
 * 8: Bag
 * 9: Ankle boot
 
-
+<img src="./data/training_batch.jpg" alt="drawing" width="350"/>
 
 ### Virtual Environment / Dependencies
 
 Although all necessary packages can be installed manually, we recommend using [Anaconda](https://www.anaconda.com/download#downloads).   
-The [environment file](./environment.yml) lists all packages and their versions. If you already have anaconda installed, simply create a new environment using:      
+The [environment file](./environment_lx.yml) lists all packages and their versions. If you already have anaconda installed, simply create a new environment using:      
 
 #### For Linux / WSL2
 `conda env create -f environment_lx.yml`  
@@ -56,6 +56,7 @@ Some key resources:
 [CNN Model Guide ](https://www.kaggle.com/code/pavansanagapati/a-simple-cnn-model-beginner-guide)
 
 
+*Authors: Léa Brönnimann & Mansour Faye*
 
 
 

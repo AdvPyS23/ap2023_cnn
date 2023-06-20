@@ -1,3 +1,5 @@
+"""Contains the CNN architecture, model training and testing
+"""
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -8,6 +10,29 @@ import traceback
 batch_size = 32 # Problematic, find a workaround
 
 class CNN(nn.Module):
+    """
+    The neural network class
+
+    ...
+
+    Attributes
+    ----------
+    conv1
+        First convolutional layer
+    conv2
+        Second convolutional layer
+    fc1
+        First fully-connected layer
+    fc2
+        Second fully-connected layer
+    out
+        Output layer
+
+    Methods
+    -------
+    forward():
+        Defines the forward pass: order of layers, kernel and stride sizes
+    """
     def __init__(self):
         super(CNN, self).__init__()
 
@@ -43,7 +68,34 @@ class CNN(nn.Module):
 # train function
 
 def train(net, trainloader, testloader, epochs, device):
+    """Trains the CNN and tests model accuracy.
+    For each epoch, we perform the forward and backward pass + mini-batch gradient descent for all training data, and record loss.
+    We then measure loss on the testing data
 
+    Parameters
+    -----------
+    net
+        Neural Network object
+    trainloader
+        DataLoader for the training data
+    testloader
+        Dataloader for the test data
+    epochs
+        Number of training epochs
+    device
+        CPU or GPU
+
+    Returns
+    ---------
+    losses_train
+        List tracking average loss every 100 batches
+    losses_test
+        List tracking average loss every 100 batches of test images
+    acc_train
+        List tracking average training accuracy  every 100 batches
+    acc_test
+        List tracking average testing accuracy every 100 batches
+    """
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
     net.to(device)
